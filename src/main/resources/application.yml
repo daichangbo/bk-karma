@@ -1,0 +1,16 @@
+server:
+  port: 8081 #端口
+
+spring:
+  application:
+    name: bk-karma
+eureka:
+  client:
+    register-with-eureka: true
+      fetch-registry: true
+      service-url:
+        defaultZone: http://localhost:6761/eureka
+  instance:
+    ip-address: true
+
+

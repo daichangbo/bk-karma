@@ -9,6 +9,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.multipart.MultipartFile;
 
 /**
  * @author daichangbo
@@ -23,6 +24,15 @@ public class UserController {
     @ApiOperation(value = "用户获取", tags = {"返回用户信息"}, notes = "务必提交json格式")
     @RequestMapping("/fetch")
     public ResultBase<UserDTO> fetchUser ( @RequestBody UserDTO userDTO ) {
+        userDTO.setAge ( 27 );
+        userDTO.setUserName ( "frank" );
+        return ResultBuilder.builder ( true,userDTO );
+    }
+
+    @ApiOperation(value = "图片", tags = {"图片"}, notes = "务必提交json格式")
+    @RequestMapping("/upload")
+    public ResultBase<UserDTO> upload ( @RequestBody MultipartFile multipartFile ) {
+        UserDTO userDTO = new UserDTO();
         userDTO.setAge ( 27 );
         userDTO.setUserName ( "frank" );
         return ResultBuilder.builder ( true,userDTO );

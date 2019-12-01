@@ -1,5 +1,10 @@
 package com.bk.karma.controller
 
+import com.alibaba.fastjson.JSON
+import com.bk.karma.dto.UserDTO
+
+import java.util.stream.Collectors
+
 /**
  * @author daichangbo* @date 2019-10-24 20:52
  */
@@ -13,5 +18,8 @@ class TestController {
     def sayHello(){
         println 'Hello '+getAuthorName()
     }
+
+
+
 
 }

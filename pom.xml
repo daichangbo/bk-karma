@@ -126,6 +126,25 @@
             <artifactId>apollo-client</artifactId>
             <version>1.0.0</version>
         </dependency>
+        <dependency>
+            <groupId>com.jk</groupId>
+            <artifactId>jk-base-share</artifactId>
+            <version>1.0.160</version>
+            <exclusions>
+                <exclusion>
+                    <groupId>com.alibaba.boot</groupId>
+                    <artifactId>dubbo-spring-boot-starter</artifactId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+
+
+        <dependency>
+            <groupId>com.tngtech.archunit</groupId>
+            <artifactId>archunit</artifactId>
+            <version>0.12.0</version>
+            <scope>test</scope>
+        </dependency>
 	</dependencies>
 
 	<build>

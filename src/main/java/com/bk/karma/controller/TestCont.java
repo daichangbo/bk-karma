@@ -115,14 +115,40 @@ public class TestCont {
 //        Date startDate = DateUtils.parseDate ( "2019-12-01 00:00:00","yyyy-MM-dd HH:mm:ss" ) ;
 //        System.out.println (getMonthBegin(startDate,1));
 //        System.out.println (getMonthEnd (startDate));
-        try {
-            BigDecimal totalPreReceivedBalance = customerBillCountVOList.stream().filter ( a -> a.getPreReceivedBalance () != null ) .map( CustomerBillCountVO::getPreReceivedBalance).reduce( BigDecimal::add).get();
-            System.out.println (totalPreReceivedBalance);
-        } catch (Exception e) {
-            log.error ( "error" + e );
-        }
+//        try {
+//            BigDecimal totalPreReceivedBalance = customerBillCountVOList.stream().filter ( a -> a.getPreReceivedBalance () != null ) .map( CustomerBillCountVO::getPreReceivedBalance).reduce( BigDecimal::add).get();
+//            System.out.println (totalPreReceivedBalance);
+//        } catch (Exception e) {
+//            log.error ( "error" + e );
+//        }
+//
+//        if (customerBillCountVO.getPreReceivedBalance ().compareTo ( BigDecimal.ZERO ) > 0) {
+//            System.out.println ("ssss");
+//        }else {
+//            System.out.println ("sddd");
+//        }
+        List<Integer> list1 = Arrays.asList ( 10,20,30,40,50,60,70,80 ,90,100);
+        List<Integer> list2 = Arrays.asList ( 10,20,30,40,50,60,70,90,100 );
+
+        List<Integer> reduce1 = list1.stream().filter(item -> !list2.contains(item)).collect( Collectors.toList());
+        System.out.println (JSON.toJSONString ( reduce1 ));
 
     }
+
+    private static List<String> getDiffrent(List<String> list1, List<String> list2) {
+        long st = System.nanoTime();
+        List<String> diff = new ArrayList<String>();
+        for(String str:list1)
+        {
+            if(!list2.contains(str))
+            {
+                diff.add(str);
+            }
+        }
+        System.out.println("total times "+(System.nanoTime()-st));
+        return diff;
+    }
+
     public static String date2String(Date date) {
         if (null == date)
             return "";

@@ -6,6 +6,7 @@ import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
 import com.jk.base.http.HttpClient;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import sun.security.provider.MD5;
 
@@ -27,7 +28,7 @@ public class SkuService {
 
     private static final String ALGORITHM_MD5 = "MD5";
 
-    @Resource
+    @Autowired
     private HttpClient httpClient ;
 
     public void postApbenben () {

@@ -1,6 +1,6 @@
 package com.bk.karma.configuration.http;
 
-import com.jk.base.http.HttpFactoryBean;
+import com.bk.karam.factory.http.HttpFactoryBean;
 import org.springframework.context.annotation.Bean;
 import org.springframework.stereotype.Component;
 

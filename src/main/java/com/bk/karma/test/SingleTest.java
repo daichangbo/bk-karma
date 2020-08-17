@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import java.lang.reflect.Field;
 import java.lang.reflect.Method;
+import java.math.BigDecimal;
 
 /**
  * @Auther dcb
@@ -39,7 +40,7 @@ public class SingleTest {
     @RequestMapping("/dataTest")
     public LessonIndexDto dataTest() throws Exception {
         LessonIndexDto lessonIndexDto = new LessonIndexDto();
-        lessonIndexDto.setAnswerUserCount(1L);
+//        lessonIndexDto.setAnswerUserCount(1L);
         lessonIndexDto.setSignInCount("测试");
         doAround(lessonIndexDto);
         log.info("dataTest result", JSON.toJSONString(lessonIndexDto));
@@ -94,6 +95,10 @@ public class SingleTest {
         if (f.getGenericType().toString().equals(
                 "class java.lang.Integer")) {
             tMethod.invoke(oo, Integer.valueOf(defaultValue));
+        }
+        if (f.getGenericType().toString().equals(
+                "class java.math.BigDecimal")) {
+            tMethod.invoke(oo, new BigDecimal(defaultValue));
         }
         return oo;
     }
